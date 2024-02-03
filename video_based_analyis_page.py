@@ -9,8 +9,6 @@ st.title("Video Analysis")
 
 video_link = st.text_input("Enter video link:")
 
-st.write(video_link)
-
 if video_link:
     # Providing the API key
     api_key = "AIzaSyDFFVUkYavn8C3BMAssUShtVVz7NAupOlE"
@@ -33,16 +31,15 @@ if video_link:
     # Getting comments
     comments = video_analysis.get_comments(data)
     
-    # Set upt he inference pipeline using a model from the 🤗 Hub
-    MODEL_CHECKPOINT = "finiteautomata/bertweet-base-sentiment-analysis"
-    sentiment_analysis = pipeline(task="sentiment-analysis", tokenizer=(MODEL_CHECKPOINT, {'model_max_length': 128}), model="finiteautomata/bertweet-base-sentiment-analysis")
+    # Set up the inference pipeline using a model from the 🤗 Hub
+    sentiment_analysis = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
 
     predictions = None
     # Making predictions
     if comments:
         predictions = sentiment_analysis(comments)
     else:
-        print("No comments to analyze.")
+        st.write("No commets found")
 
 
     # Visualize the sentiments
