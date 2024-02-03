@@ -6,66 +6,60 @@ import matplotlib.pyplot as plt
 from googleapiclient.discovery import build
 import analysis
 from wordcloud import WordCloud, STOPWORDS
-import warnings
+# import warnings
 
-# Suppress Streamlit warnings
-st.set_option('deprecation.showfileUploaderEncoding', False)
-st.set_option('deprecation.showPyplotGlobalUse', False)
+# # Suppress Streamlit warnings
+# st.set_option('deprecation.showfileUploaderEncoding', False)
+# st.set_option('deprecation.showPyplotGlobalUse', False)
 
-def target():
+def video():
 
-    st.title("Target Analysis")
+    st.title("Video Analysis")
 
-    target = st.text_input("Enter the target:")
+    video_link = st.text_input("Enter video link:")
 
-    if target:
+    if video_link:
         # Providing the API key
         api_key = "AIzaSyCkAd4mhamfZoxGmW5_32Hvi-WZaCPHg0o"
 
         # Initializing object of youtube class
-        target_analysis = yt(api_key)
+        video_analysis = yt(api_key)
 
         # Getting Youtube API service
-        youtube_api_service = target_analysis.get_youtube_api_service()
+        youtube_api_service = video_analysis.get_youtube_api_service()
 
-        
+        # Getting video id based on the link
+        video_id = video_analysis.get_video_id(video_link)
 
         # Getting max number of comments from the user
-        max_results = st.number_input("Enter maximum number of videos", value=5, min_value = 1, max_value = 20)
+        max_results = st.number_input("Enter maximum number of comments", value=100, min_value = 1, max_value = 200)
 
         button = st.button("Analyze")
 
         if button:
 
-            # Getting video ids
-            video_ids = target_analysis.search_videos(youtube_api_service, target, max_results)
+            data = video_analysis.get_data(video_id, max_results)
 
-            # Fetching comment for each video and then storing it into the single pandas dataframe
-            data = pd.DataFrame()
+            # if data == None:
+            #     st.write("HTTP Error!!! Access Denied")
+            #     return
 
-            # Fetching comment for the each video
-            for video_id in video_ids:
-                temp = target_analysis.get_data(video_id)
-                data = pd.concat([data, temp], ignore_index=True)
+            video_details = video_analysis.get_video_details(youtube_api_service, video_id)
 
-            # Displaying the title of each video
-            target_details = []
-            for video_id in video_ids:
-                target_details.append(target_analysis.get_video_details(youtube_api_service, video_id))
-            
-            st.write("Titles:")
-            for video in target_details:
-                if video:
-                    title = video['title']
-                    st.write(title)
+            if video_details:
+                title = video_details['title']
+                description = video_details['description']
 
-            #showing fetched comments
+                st.write("Title: " + title)
+                # st.write(f"Description: {description}")
+
             st.dataframe(data, hide_index=True)
-                
-            # Getting comments
-            comments = target_analysis.get_comments(data)
 
-            # Set up the inference pipeline using a model from the 🤗 Hub
+
+            # Getting comments
+            comments = video_analysis.get_comments(data)
+            
+            # Set up the inference pipeline using a model from the Hub
             sentiment_analysis = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
 
             predictions = None
@@ -74,6 +68,9 @@ def target():
                 predictions = sentiment_analysis(comments)
             else:
                 st.write("No commets found")
+
+
+            # Visualize the sentiments
 
             df2 = pd.DataFrame(predictions)
 
@@ -87,9 +84,7 @@ def target():
             analysis.negative_wordcloud(merged_df)
             analysis.neutral_wordcloud(merged_df)
 
-            # Displaying results
             st.dataframe(merged_df, hide_index=True)
-
 
             # Download the data
             @st.cache_data
@@ -104,3 +99,9 @@ def target():
                 file_name='large_df.csv',
                 mime='text/csv',
             )
+
+            
+
+
+
+

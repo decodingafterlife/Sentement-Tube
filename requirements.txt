@@ -1,0 +1,7 @@
+tensorflow
+stremlit
+python
+pandas
+pytorch
+matplotlib
+google-api-python-client
