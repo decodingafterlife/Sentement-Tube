@@ -1,6 +1,7 @@
 from googleapiclient.discovery import build
 import json
 import pandas as pd
+import re
 
 class Youtube:
 
@@ -17,6 +18,34 @@ class Youtube:
         """
         youtube_api_service = build('youtube', 'v3', developerKey=self.api_key)
         return youtube_api_service
+
+
+
+    def get_video_id(self, youtube_url):
+        """
+        Extracts the YouTube video ID from a given YouTube video URL.
+
+        Args:
+        - youtube_url (str): The URL of the YouTube video.
+
+        Returns:
+        str or None:
+            If a valid video ID is found, returns the extracted video ID.
+            If no video ID is found, returns None.
+        """
+        # Define the regular expression pattern to match the video ID
+        pattern = re.compile(r'(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})')
+
+        # Use the pattern to find the video ID in the URL
+        match = pattern.search(youtube_url)
+
+        if match:
+            video_id = match.group(1)
+            return video_id
+        else:
+            return None
+
+
 
     def search_videos(self, api_service,keyword, max_results = 10):
         """
@@ -64,7 +93,7 @@ class Youtube:
         else:
             return None
 
-        def get_data(self, video_id, max_results=100):
+    def get_data(self,video_id, max_results=100):
         """
         Retrieves user comments and related information from a YouTube video using the YouTube Data API.
 
@@ -78,6 +107,7 @@ class Youtube:
             If an error occurs during the API request, returns the caught exception.
         """
         # Initialize the API request
+        youtube = build('youtube', 'v3', developerKey=self.api_key)
         request = youtube.commentThreads().list(
             part="snippet, replies",
             videoId=video_id,
