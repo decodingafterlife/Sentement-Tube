@@ -4,10 +4,21 @@ import numpy as np
 
 def main():
     st.title("YouTube Video Sentiment Analysis")
-    st.write("Enter the YouTube video link below:")
 
-    # Create a text input field for the user to enter the YouTube video link
-    video_link = st.text_input("Enter YouTube Video Link")
+    # Add a choice button to select between search for video or enter direct link
+    search_or_direct = st.radio("Choose:", ("Search for Video", "Enter Youtube Link"))
+
+    if search_or_direct == "Search for Video":
+        # Create a text input field for the user to enter the search query
+        search_query = st.text_input("Enter Search Query")
+
+        # Add logic to search for the video based on the search query
+        # This part is not implemented in the provided code snippet
+
+    elif search_or_direct == "Enter Youtube Link":
+        video_link = st.text_input("Enter YouTube Video Link")
+
+        # Here you can use the video_link input for further processing
 
     categories = ['Positive', 'Neutral', 'Negative']
     sentiment_scores = np.random.randint(0, 100, size=len(categories))
@@ -42,8 +53,6 @@ def main():
     ax.set_xlabel('Sentiment')
     ax.set_ylabel('Score')
     st.pyplot(fig)
-
-    
 
 if __name__ == "__main__":
     main()
