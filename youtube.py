@@ -47,7 +47,7 @@ class Youtube:
 
 
 
-    def search_videos(self, api_service,keyword, max_results = 10):
+    def search_videos(self, api_service,keyword, max_results = 5):
         """
         Searches for videos on YouTube using the provided API service and a specified keyword.
 
