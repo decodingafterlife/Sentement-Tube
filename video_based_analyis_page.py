@@ -34,7 +34,8 @@ if video_link:
     comments = video_analysis.get_comments(data)
     
     # Set upt he inference pipeline using a model from the 🤗 Hub
-    sentiment_analysis = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
+    MODEL_CHECKPOINT = "finiteautomata/bertweet-base-sentiment-analysis"
+    sentiment_analysis = pipeline(task="sentiment-analysis", tokenizer=(MODEL_CHECKPOINT, {'model_max_length': 128}), model="finiteautomata/bertweet-base-sentiment-analysis")
 
     predictions = None
     # Making predictions
@@ -54,9 +55,6 @@ if video_link:
     sentiment_counts.plot.pie(ax=ax, autopct='%1.1f%%', startangle=270, fontsize=12, label="")
     st.pyplot(fig)
 
-    print("End")
-
-print("Pseudo")
 
 
 

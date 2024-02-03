@@ -131,6 +131,8 @@ class Youtube:
                 for item in response['items']:
                     # Extract the comment details
                     comment_snippet = item['snippet']['topLevelComment']['snippet']
+                    if (len(comment_snippet['textDisplay']) > 128):
+                        continue
                     comments.append(comment_snippet['textDisplay'])
                     user_names.append(comment_snippet['authorDisplayName'])
                     dates.append(comment_snippet['publishedAt'])
