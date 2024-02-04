@@ -1,6 +1,6 @@
 tensorflow
 streamlit
 pandas
-pytorch
+torch
 matplotlib
 google-api-python-client
