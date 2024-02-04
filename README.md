@@ -62,9 +62,8 @@ Our goal is to empower content consumers and creators through sentiment analysis
 
 Click the "Download Results" button to save sentiment analysis results in CSV format.
 
-## Link to Deployed Project 
-https://sentement-tube.streamlit.app/
-
 ## Some visuals
+
+
 
 
