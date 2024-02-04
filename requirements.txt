@@ -1,5 +1,5 @@
 tensorflow
-stremlit
+streamlit
 python
 pandas
 pytorch
