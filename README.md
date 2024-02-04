@@ -42,15 +42,17 @@ Our goal is to empower content consumers and creators through sentiment analysis
 
 ## Usage
 
-1. Run the application:
+1. Add youtube api key in the video_based_analysis.py and target_based_analysis.py in "api_key" variable
+
+2. Run the application:
 
     ```bash
     $ streamlit run app.py
     ```
 
-2. Open your browser and navigate to [http://localhost:8501](http://localhost:8501).
+3. Open your browser and navigate to [http://localhost:8501](http://localhost:8501).
 
-3. Explore sentiment analysis, visualizations, and download results using the provided options.
+4. Explore sentiment analysis, visualizations, and download results using the provided options.
 
 ## Visualizations
 
