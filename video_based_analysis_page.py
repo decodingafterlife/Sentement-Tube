@@ -78,12 +78,21 @@ def video():
             df = analysis.pie_chart(df2)
             # Merge the DataFrames column-wise
             merged_df = pd.concat([data, df2], axis=1)
-
+            
+            st.write(" ")
+            st.write(" ")  
             # Plotting the wordcloud for the particular category
+            st.write(" ")
+            st.write(" ")   
             analysis.positive_wordcloud(merged_df)
+            st.write(" ")
+            st.write(" ")   
             analysis.negative_wordcloud(merged_df)
+            st.write(" ")
+            st.write(" ")   
             analysis.neutral_wordcloud(merged_df)
-
+            st.write(" ")
+            st.write(" ")   
             st.dataframe(merged_df, hide_index=True)
 
             # Download the data

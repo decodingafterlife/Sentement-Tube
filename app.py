@@ -16,7 +16,7 @@ def home():
     st.write(" ")
     st.write(" ")
     st.markdown("""<div style='border: 1px solid #e6e6e6; padding: 10px; border-radius: 5px;'><h2>Welcome to Sentiment-Tube</h2>
-Analyzing sentiments in comments provides valuable insights into audience reactions, preferences, and opinions, which can be beneficial for content creators, marketers, and platform administrators.</div>
+Here we delve into the heartbeat of YouTube conversations. Our cutting-edge sentiment analysis tools decode the emotions hidden in every comment, offering a unique perspective on audience engagement and content reception. Analyzing sentiments in comments provides valuable insights into audience reactions, preferences, and opinions, which can be beneficial for content creators, marketers, and platform administrators
 """, unsafe_allow_html=True)
 
     pass
