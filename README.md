@@ -1,4 +1,4 @@
-![Screenshot(207)](https://github.com/decodingafterlife/Sentement-Tube/assets/135339042/8f26a716-85d9-4f00-b3fe-8691f1ff3c78)# Sentement-Tube : Understanding Audience Feedback Effectively
+# Sentement-Tube : Understanding Audience Feedback Effectively
 
 YouTube Comment sentiment Analysis Tool
 
@@ -8,9 +8,7 @@ Our goal is to empower content consumers and creators through sentiment analysis
 
 - **Exclusive Focus**: Tailored for YouTube comments, our tool eliminates the need for image and video filtering.
 - **Relevance Assurance**: Extracting comments from topic-related videos ensures precise sentiment analysis.
-- **Topic Flexibility**: Accommodates specific requests while offering r![Uploading Screenshot(210).png…]()
-![Screenshot(208)](https://github.com/decodingafterlife/Sentement-Tube/assets/135339042/33b18aa9-7e37-41eb-ad65-d37a78e87dae)
-eal-time analysis on any given topic.
+- **Topic Flexibility**: Accommodates specific requests while offering real-time analysis on any given topic.
 - **Real-time Responsiveness**: Equipped for immediate sentiment analysis, enhancing adaptability.
 - **Labelled Data Creation**: Effortless labeled data generation for enhanced model training and accuracy.
 - **Pertinent Data Extraction**: Ensures our model receives only relevant information by extracting comments from related videos.
@@ -28,3 +26,6 @@ eal-time analysis on any given topic.
 - Wordcloud
 
 <img src="Screenshot(207).png" alt="Image Description">
+<img src="Screenshot(208).png" alt="Image Description">
+<img src="Screenshot(210).png" alt="Image Description">
+<img src="Screenshot.png" alt="Image Description">
