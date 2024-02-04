@@ -104,7 +104,7 @@ class Youtube:
         Returns:
         - pandas.DataFrame or Exception:
             If successful, returns a DataFrame containing comment details such as text, replies, user names, and dates.
-            If an error occurs during the API request, returns the caught exception.
+            If an error occurs during the API request, returns None.
         """
         # Initialize the API request
         youtube = build('youtube', 'v3', developerKey=self.api_key)
@@ -149,10 +149,10 @@ class Youtube:
                     request = youtube.commentThreads().list_next(request, response)
 
             except Exception as e:
-                return e
+                return None
 
         # Create a DataFrame for collected data
-        df = pd.DataFrame({"comment": comments, "replies": replies_list, "user_name": user_names, "date": dates})
+        df = pd.DataFrame({"Comment": comments, "Replies": replies_list, "User Name": user_names, "Date": dates})
 
         return df
 
@@ -179,7 +179,7 @@ class Youtube:
         Returns:
         List[str]: A list of comments extracted from the DataFrame.
         """
-        comments = df["comment"].tolist()
+        comments = df["Comment"].tolist()
         return comments
 
 
