@@ -30,7 +30,7 @@ Our goal is to empower content consumers and creators through sentiment analysis
 1. Clone the repository:
 
     ```bash
-    $ git clone [https://github.com/your-username/your-repo.git](https://github.com/decodingafterlife/Youtube-Sentiment-Analysis.git)
+    $ git clone https://github.com/decodingafterlife/Youtube-Sentiment-Analysis.git
     $ cd your-repo
     ```
 
