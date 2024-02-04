@@ -1,6 +1,5 @@
 tensorflow
 streamlit
-python
 pandas
 pytorch
 matplotlib
