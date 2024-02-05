@@ -60,18 +60,13 @@ Our goal is to empower content consumers and creators through sentiment analysis
 ## Download Results
 
 Click the "Download Results" button to save sentiment analysis results in CSV format.
-<br>
+
+
 <img src="Screenshot(217).png" alt="Image Description">
-<br>
 <img src="Screenshot(213).png" alt="Image Description">
-<br>
 <img src="Screenshot(207).png" alt="Image Description">
-<br>
 <img src="Screenshot(208).png" alt="Image Description">
-<br>
 <img src="Screenshot.png" alt="Image Description">
-<br>
 <img src="Screenshot(210).png" alt="Image Description">
-<br>
 <img src="Screenshot(218).png" alt="Image Description">
 
