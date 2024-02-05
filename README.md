@@ -28,21 +28,24 @@ Our goal is to empower content consumers and creators through sentiment analysis
 
 1. Clone the repository:
 
-    bash
+    ```bash
     $ git clone https://github.com/decodingafterlife/Sentement-Tube.git
     $ cd your-repo
+   ```
     
-2. Install dependencies:
+3. Install dependencies:
 
-    bash
+    ```bash
     $ pip install -r requirements.txt
+    ```
     
 ## Usage
 1. Add your youtube api key in the target_based_analysis_page.py and video_based_analysis_page.py
 1. Run the application:
 
-    bash
+    ```bash
     $ streamlit run app.py
+    ```
     
 2. Open your browser and navigate to [http://localhost:8501](http://localhost:8501).
 
