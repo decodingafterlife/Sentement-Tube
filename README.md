@@ -55,7 +55,7 @@ Our goal is to empower content consumers and creators through sentiment analysis
 
 - *Pie Charts*: Visual representation of sentiment distribution.
 - *Word Clouds*: Graphical representation of frequently occurring words in positive, negative, and neutral comments.
-- *Various Graphs and Diagrams*: Flexible data visualization options to meet specific needs.
+
 
 ## Download Results
 
